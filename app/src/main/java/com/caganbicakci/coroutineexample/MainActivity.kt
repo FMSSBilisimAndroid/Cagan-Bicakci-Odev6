@@ -18,8 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         while(true){
 
-            count++
-            Log.i("COUNT", count.toString())
+            CoroutineScope(Dispatchers.Main).async {
+                count++
+                Log.i("COUNT", count.toString())
+            }
 
             CoroutineScope(Dispatchers.IO).launch {
                 val answer = doNetworkCall()
@@ -27,7 +29,10 @@ class MainActivity : AppCompatActivity() {
                     Log.v("PATIKA", answer)
                 }
             }
+
         }
+
+
     }
 
     private suspend fun doNetworkCall(): String {
