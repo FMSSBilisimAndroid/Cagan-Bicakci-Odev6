@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Coroutine Example</string>
+    <string name="count">count %d</string>
+</resources>
